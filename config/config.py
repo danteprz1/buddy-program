@@ -14,3 +14,8 @@ STATUS_NOT_FOUND = 404
 #Data
 INVALID_ID = 9999999999
 NON_EXISTENT_ID = "test"
+EMAIL = "dante.perez@wizeline.com"
+MOCK_EMAIL = "test@test"
+
+#TODO: Change this since it's sensible data
+PASSWORD = "Lalala01!"

@@ -14,6 +14,8 @@ def browser(playwright):
 
 @pytest.fixture
 def page(browser):
-    page = browser.new_page()
+    context = browser.new_context()
+    context.set_default_timeout(5000)
+    page = context.new_page()
     yield page
     page.close()

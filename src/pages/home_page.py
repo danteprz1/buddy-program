@@ -1,12 +1,18 @@
+import string
+import random
+
 from playwright.sync_api import Page
 
 class HomePage:
     def __init__(self, page: Page):
         self.page = page
         self.login_button = page.get_by_role("link", name="Log in")
-        self.add_task_button = page.get_by_role("button", name="Add task")
-        self.task_name_input = page.get_by_placeholder("Task name")
-        self.submit_task_button = page.get_by_role("button", name="Add task")
+        self.add_task_button = page.locator("button[class='plus_add_button']")
+        self.cancel_task_button = page.get_by_label("Cancel")
+        self.task_name_input = page.locator("p[data-placeholder='Task name']")
+        self.submit_task_button = page.locator("button[type='submit']")
+        self.settings_menu = page.locator('button[aria-label="Settings"]')
+        self.created_task = "//div[contains(text(), 'String')]"
 
     def navigate_to_login_page(self):
         self.login_button.click()
@@ -15,6 +21,10 @@ class HomePage:
         self.add_task_button.click()
         self.task_name_input.fill(task_name)
         self.submit_task_button.click()
+        self.cancel_task_button.click()
 
     def is_task_present(self, task_name: str):
-        return self.page.locator(f"text={task_name}").is_visible()
+        return self.page.locator(self.created_task.replace("String", task_name))
+
+    def generate_random_task_name(self):
+        return ''.join(random.choices(string.ascii_letters, k=6))
