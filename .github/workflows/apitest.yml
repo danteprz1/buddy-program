@@ -1,4 +1,4 @@
-name: Pylint
+name: Playwright API Tests
 
 on: [push]
 
@@ -14,4 +14,4 @@ jobs:
 
       - run: pip install playwright
       - run: playwright install
-      - run: pytest tests/
+      - run: pytest tests/api
