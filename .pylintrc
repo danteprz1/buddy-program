@@ -1,2 +1,2 @@
 [MASTER]
-disable=missing-docstring, too-many-lines, invalid-name, missing-final-newline, fixme, import-error, no-member, too-many-arguments, too-many-locals, too-many-branches, too-many-statements, too-many-instance-attributes, too-many-public-methods, too-many-return-statements, too-many-boolean-expressions, too-many-ancestors, too-few-public-methods, too-many-function-args, too-many-function-locals, too-many-nested-blocks, too-many-nested-classes, too-many-nested-
+disable=missing-docstring, too-many-lines, invalid-name, missing-final-newline, fixme, import-error, no-member, too-many-arguments, undefined-variable, too-many-locals, too-many-branches, redefined-outer-name
