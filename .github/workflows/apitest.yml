@@ -11,7 +11,26 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-
+        env:
+          TEST_USER: ${{ secrets.USER_EMAIL }}
+          TEST_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          API_KEY: ${{ secrets.API_KEY }}
       - run: pip install playwright
       - run: playwright install
-      - run: pytest tests/api
+      - name: Run API tests
+        run: pytest --alluredir=allure-results tests/api
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results/
+
+      - name: Generate Allure report
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+      - run: |
+          curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/download/2.22.2/allure-2.22.2.zip
+          unzip allure.zip -d allure
+          ./allure/bin/allure serve allure-results

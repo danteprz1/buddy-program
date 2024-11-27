@@ -23,4 +23,3 @@ class LoginPage:
 
     def navigate_to_home_page(self, email: str, password: str):
         self.login(email, password)
-

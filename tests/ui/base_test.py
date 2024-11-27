@@ -7,9 +7,15 @@ from src.pages.login_page import LoginPage
 
 
 class BaseTest:
+
+    def __init__(self):
+        self.page: Page
+        self.login_page: LoginPage
+        self.home_page: HomePage
+
     @pytest.fixture(autouse=True)
     def setup(self, page: Page):
-        """Playwright page instance for tests."""
+        # Playwright page instance for tests
         self.page = page
         self.login_page = LoginPage(self.page)
         self.home_page = HomePage(self.page)

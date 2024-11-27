@@ -1,2 +1,2 @@
 [MASTER]
-disable=missing-docstring, too-many-lines, invalid-name, missing-final-newline, fixme, import-error, no-member, too-many-arguments, undefined-variable, too-many-locals, too-many-branches, redefined-outer-name
+disable=missing-docstring, too-many-lines, invalid-name, missing-final-newline, too-many-instance-attributes, no-name-in-module, wildcard-import, import-error, no-member, too-many-arguments, undefined-variable, too-many-locals, too-many-branches, redefined-outer-name

@@ -1,7 +1,6 @@
 import pytest
-from fixtures.api_context import api_context
 
-BASE_URL = "https://api.todoist.com/rest/v2"
+from config.config import BASE_URL
 
 @pytest.fixture
 def create_task(api_context):
@@ -10,4 +9,3 @@ def create_task(api_context):
     task_id = response.json()["id"]
     yield task_id
     api_context.delete(f"{BASE_URL}/projects/{task_id}")
-

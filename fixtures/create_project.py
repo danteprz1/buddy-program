@@ -1,5 +1,4 @@
 import pytest
-from fixtures.api_context import api_context
 
 BASE_URL = "https://api.todoist.com/rest/v2"
 
