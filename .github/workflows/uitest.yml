@@ -14,13 +14,13 @@ jobs:
       - run: pip install playwright
       - run: playwright install
       - name: Run UI tests
-        run: pytest --html=report.html tests/ui
+        run: pytest --junitxml=report.xml tests/ui
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
-      - name: Upload pytest-html report
+      - name: Upload JUnit XML report
         uses: actions/upload-artifact@v3
         with:
-          name: pytest-html-report
-          path: report.html
+          name: pytest-junit-report
+          path: report.xml
