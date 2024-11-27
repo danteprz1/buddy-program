@@ -8,11 +8,6 @@ from src.pages.login_page import LoginPage
 
 class BaseTest:
 
-    def __init__(self):
-        self.page: Page
-        self.login_page: LoginPage
-        self.home_page: HomePage
-
     @pytest.fixture(autouse=True)
     def setup(self, page: Page):
         # Playwright page instance for tests
