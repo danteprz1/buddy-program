@@ -11,15 +11,14 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-        env:
-          TEST_USER: ${{ secrets.USER_EMAIL }}
-          TEST_PASSWORD: ${{ secrets.USER_PASSWORD }}
-          API_KEY: ${{ secrets.API_KEY }}
       - run: pip install playwright
       - run: playwright install
       - name: Run UI tests
         run: pytest --alluredir=allure-results tests/ui
-
+        env:
+          TEST_USER: ${{ secrets.USER_EMAIL }}
+          TEST_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          API_KEY: ${{ secrets.API_KEY }}
       - name: Upload Allure results
         uses: actions/upload-artifact@v3
         with:
