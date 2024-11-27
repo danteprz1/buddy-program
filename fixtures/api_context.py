@@ -1,6 +1,6 @@
-from playwright.sync_api import sync_playwright
-from config.config import HEADERS
 import pytest
+from config.config import HEADERS
+from playwright.sync_api import sync_playwright
 
 @pytest.fixture(scope="function")
 def api_context():

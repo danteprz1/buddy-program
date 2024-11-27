@@ -13,4 +13,3 @@ class TestLogin(BaseTest):
         user, password = user_invalid_credentials
         self.login_page.login(user, password)
         expect(self.login_page.wrong_credentials_message).to_be_visible()
-
