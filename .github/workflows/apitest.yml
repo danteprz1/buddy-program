@@ -14,24 +14,13 @@ jobs:
       - run: pip install playwright
       - run: playwright install
       - name: Run API tests
-        run: pytest --alluredir=allure-results tests/api
+        run: pytest --html=report.html tests/api
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-      - name: Download Allure CLI
-        run: |
-          curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/download/2.22.2/allure-2.22.2.zip
-          unzip allure.zip -d allure
-      - name: Generate Allure Report
-        run: ./allure/bin/allure generate allure-results -o allure-report
-      - name: Upload Allure Report
+      - name: Upload pytest-html report
         uses: actions/upload-artifact@v3
         with:
-          name: allure-report
-          path: allure-report/
+          name: pytest-html-report
+          path: report.html
