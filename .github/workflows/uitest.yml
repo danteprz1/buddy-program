@@ -19,8 +19,8 @@ jobs:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
-      - name: Upload JUnit XML report
+      - name: Upload pytest-html report
         uses: actions/upload-artifact@v3
         with:
-          name: pytest-junit-report
-          path: report.xml
+          name: pytest-html-report
+          path: report.html
