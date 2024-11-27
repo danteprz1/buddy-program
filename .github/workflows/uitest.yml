@@ -19,17 +19,14 @@ jobs:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
-      - name: Upload Allure results
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-results
-          path: allure-results/
-
-      - name: Generate Allure report
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-      - run: |
+      - name: Download Allure CLI
+        run: |
           curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/download/2.22.2/allure-2.22.2.zip
           unzip allure.zip -d allure
-          ./allure/bin/allure serve allure-results
+      - name: Generate Allure Report
+        run: ./allure/bin/allure generate allure-results -o allure-report
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report/
