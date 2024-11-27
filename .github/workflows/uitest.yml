@@ -16,9 +16,9 @@ jobs:
       - name: Run UI tests
         run: pytest --alluredir=allure-results tests/ui
         env:
-          TEST_USER: ${{ secrets.USER_EMAIL }}
-          TEST_PASSWORD: ${{ secrets.USER_PASSWORD }}
-          API_KEY: ${{ secrets.API_KEY }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
       - name: Upload Allure results
         uses: actions/upload-artifact@v3
         with:
