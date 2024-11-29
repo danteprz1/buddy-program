@@ -20,7 +20,8 @@ def browser(playwright):
         'os': 'Windows',
         'os_version': '10',
         'browser': 'Chrome',
-        'browser_version': 'latest'
+        'browser_version': 'latest',
+        'project': 'Playwright Project'
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
     browser = playwright.chromium.connect(ws_endpoint)

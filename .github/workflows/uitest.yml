@@ -12,6 +12,17 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: pip install playwright
+      - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+
+      - name: 'BrowserStack Local Tunnel Setup'  # Invokes the setup-local action
+        uses: browserstack/github-actions/setup-local@master
+        with:
+          local-testing: start
+          local-identifier: random
       - run: browserstack-sdk setup --framework "pytest" --username ${{ secrets.BROWSERSTACK_USERNAME }} --key ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - run: playwright install
       - name: Run UI tests
@@ -25,3 +36,7 @@ jobs:
         with:
           name: pytest-html-report
           path: report.html
+      - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
+        uses: browserstack/github-actions/setup-local@master
+        with:
+          local-testing: stop
