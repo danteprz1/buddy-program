@@ -6,7 +6,7 @@ class TestLogin(BaseTest):
         # Navigate to login page
         user, password = user_valid_credentials
         self.login_page.login(user, password)
-        expect(self.home_page.settings_menu).to_be_visible()
+        expect(self.page).to_have_url("https://app.todoist.com/app/")
         self.mark_test_status("passed", "Successful login", self.page)
 
     def test_unsuccessful_login_with_wrong_credentials(self, user_invalid_credentials):
