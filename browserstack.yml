@@ -1,0 +1,22 @@
+userName: ${{ secrets.BROWSERSTACK_USERNAME }}
+accessKey: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+framework: pytest
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: chrome
+    browserVersion: latest
+  - os: OS X
+    osVersion: Ventura
+    browserName: playwright-webkit
+    browserVersion: latest
+  - os: Windows
+    osVersion: 11
+    browserName: playwright-firefox
+    browserVersion: latest
+browserstackLocal: false
+buildName: buddy
+buildIdentifier: ${BUILD_NUMBER}
+projectName: BrowserStack Sample
+debug: true
+consoleLogs: info
