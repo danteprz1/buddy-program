@@ -4,7 +4,7 @@ framework: pytest
 platforms:
   - os: OS X
     osVersion: Big Sur
-    browserName: Chrome
+    browserName: edge
     browserVersion: latest
 browserstackLocal: false
 buildName: buddy
