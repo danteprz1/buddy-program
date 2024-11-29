@@ -17,7 +17,7 @@ def browser(playwright):
     desired_cap = {
             'browserstack.username': BS_USERNAME,
             'browserstack.accessKey': BS_ACCESS_KEY,
-            'resolution': '1920x1080'
+            'resolution': '1600x900'
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
     browser = playwright.chromium.connect(ws_endpoint)
@@ -27,7 +27,7 @@ def browser(playwright):
 @pytest.fixture
 def page(browser):
     context = browser.new_context()
-    context.set_default_timeout(5000)
+    context.set_default_timeout(10000)
     page = context.new_page()
     yield page
     page.close()
