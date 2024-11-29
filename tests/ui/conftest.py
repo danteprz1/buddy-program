@@ -24,7 +24,7 @@ def browser(playwright):
             'project': 'Buddy',
             'build': 'playwright-python-1',
             'name': 'Test',
-            'resolution': '1280x1024'
+            'resolution': '1920x1080'
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
     browser = playwright.chromium.connect(ws_endpoint)

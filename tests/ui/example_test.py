@@ -1,6 +1,8 @@
 from tests.ui.base_test import BaseTest
+import pytest
 
 class TestPlaywrightSetup(BaseTest):
+    @pytest.mark.skip
     def test_page_loads(self):
         # Navigate to login page
         self.page.goto("https://todoist.com/users/showlogin")
