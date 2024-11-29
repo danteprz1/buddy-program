@@ -8,6 +8,8 @@ EMAIL = os.getenv("USER_EMAIL")
 MOCK_EMAIL = "test@test"
 PASSWORD = os.getenv("USER_PASSWORD")
 API_TOKEN = os.getenv("API_TOKEN")
+BS_USERNAME = os.getenv("BROWSERSTACK_USERNAME")
+BS_ACCESS_KEY = os.getenv("BROWSERSTACK_ACCESS_KEY")
 
 #URLs
 BASE_URL = "https://api.todoist.com/rest/v2"
