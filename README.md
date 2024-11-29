@@ -2,7 +2,7 @@
 
 ## Description
 This repository showcases a Proof-of-Concept (POC) for the QA Buddy Program. It includes automated test cases 
-for both the frontend and backend of the [Todoist] (https://app.todoist.com/) website.
+for both the frontend and backend of the Todoist (https://app.todoist.com/) website.
 
 ## Tech Stack
     - Python 3.5+
