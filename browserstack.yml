@@ -6,9 +6,13 @@ platforms:
     osVersion: Big Sur
     browserName: playwright-chromium
     browserVersion: latest
+  - os: Windows
+    osVersion: 11
+    browserName: chrome
+    browserVersion: latest
 browserstackLocal: true
 buildName: buddy
-buildIdentifier: ${BUILD_NUMBER}
+buildIdentifier: 1
 projectName: Buddy Program
 debug: true
 parallelsPerPlatform: 1
