@@ -12,10 +12,9 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: pip install playwright
-      - run: browserstack-sdk setup --framework "pytest" --username ${{ secrets.BROWSERSTACK_USERNAME }} --key ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - run: playwright install
       - name: Run API tests
-        run: browserstack-sdk pytest --junitxml=report.xml tests/api
+        run: pytest --junitxml=report.xml tests/api
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
