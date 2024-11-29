@@ -1,7 +1,5 @@
 import pytest
 from playwright.sync_api import sync_playwright
-from urllib import parse
-
 from config.config import BS_USERNAME, BS_ACCESS_KEY
 
 
@@ -17,15 +15,9 @@ def browser(playwright):
         "browser_version": "latest",
         "os": "osx",
         "os_version": "catalina",
-        "browserstack.networkLogs": True,
-        "browserstack.local": True,
-        "browserstack.console": "errors",
-        "browserstack.username": {BS_USERNAME},
-        "browserstack.accessKey": {BS_ACCESS_KEY}
     }
-    caps = parse.urlencode(capabilities)
-    ws_endpoint = f"wss://cdp.browserstack.com/playwright?caps={caps}"
-    browser = playwright.chromium.connect_over_cdp(ws_endpoint)
+    ws_endpoint = f"wss://cdp.browserstack.com/playwright?auth={BS_USERNAME}:{BS_ACCESS_KEY}"
+    browser = playwright.chromium.connect(ws_endpoint, **capabilities)
     yield browser
     browser.close()
 
