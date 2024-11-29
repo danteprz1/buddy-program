@@ -1,5 +1,5 @@
-from tests.ui.base_test import BaseTest
 import pytest
+from tests.ui.base_test import BaseTest
 
 class TestPlaywrightSetup(BaseTest):
     @pytest.mark.skip
