@@ -6,7 +6,7 @@ platforms:
     osVersion: Big Sur
     browserName: playwright-chromium
     browserVersion: latest
-browserstackLocal: false
+browserstackLocal: true
 buildName: buddy
 buildIdentifier: ${BUILD_NUMBER}
 projectName: Buddy Program

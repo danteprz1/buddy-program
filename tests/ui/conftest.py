@@ -14,15 +14,18 @@ def playwright():
 @pytest.fixture(scope="session")
 def browser(playwright):
 
+    '''
     desired_cap = {
             'os': 'osx',
-            'os_version': 'big sur',
+            'os_version': 'ventura',
             'browser_version': 'latest',
             'browserstack.username': BS_USERNAME,
             'browserstack.accessKey': BS_ACCESS_KEY,
             'resolution': '1920x1080'
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
+    '''
+    ws_endpoint = "wss://cdp.browserstack.com/playwright"
     browser = playwright.chromium.connect(ws_endpoint)
     yield browser
     browser.close()
