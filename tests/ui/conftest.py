@@ -19,7 +19,7 @@ def browser(playwright):
         'browserstack.accessKey': BS_ACCESS_KEY,
         'os': 'Windows',
         'os_version': '10',
-        'browser': 'Chrome',
+        'browser': 'playwright-chromium',
         'browser_version': 'latest',
         'project': 'Playwright Project'
     }
