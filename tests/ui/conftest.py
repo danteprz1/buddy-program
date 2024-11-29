@@ -10,14 +10,8 @@ def playwright():
 
 @pytest.fixture(scope="session")
 def browser(playwright):
-    capabilities = {
-        "browser": "playwright-chromium",
-        "browser_version": "latest",
-        "os": "osx",
-        "os_version": "catalina",
-    }
     ws_endpoint = f"wss://cdp.browserstack.com/playwright?auth={BS_USERNAME}:{BS_ACCESS_KEY}"
-    browser = playwright.chromium.connect(ws_endpoint, **capabilities)
+    browser = playwright.chromium.connect(ws_endpoint)
     yield browser
     browser.close()
 
