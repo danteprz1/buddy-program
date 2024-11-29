@@ -15,9 +15,6 @@ def playwright():
 def browser(playwright):
 
     desired_cap = {
-            'os': 'osx',
-            'os_version': 'ventura',
-            'browser_version': 'latest',
             'browserstack.username': BS_USERNAME,
             'browserstack.accessKey': BS_ACCESS_KEY,
             'resolution': '1920x1080'
