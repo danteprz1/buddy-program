@@ -40,11 +40,11 @@ pytest --local=False tests/ui --html-report=ui-report.html
 ```
 
 ## Frontend demo
-TBD
+![](https://github.com/danteprz1/buddy-program/blob/main/demos/frontend.gif)
 
 ## Backend demo
 
-TBD
+![](https://github.com/danteprz1/buddy-program/blob/main/demos/backend.gif)
 
 ## High level interaction diagram
 
