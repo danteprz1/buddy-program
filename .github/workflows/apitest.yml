@@ -11,10 +11,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      - run: pip install playwright
       - run: playwright install
       - name: Run API tests
-        run: pytest --junitxml=report.xml tests/api
+        run: pytest -v --html-report=api_report.html tests/api
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
@@ -23,4 +22,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pytest-html-report
-          path: report.html
+          path: /home/runner/work/buddy-program/buddy-program/api_report.html
