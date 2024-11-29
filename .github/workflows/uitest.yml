@@ -25,7 +25,7 @@ jobs:
           local-identifier: random
       - run: playwright install
       - name: Run UI tests
-        run: pytest -v --html=report.html tests/ui
+        run: pytest -v --html-report=report.html tests/ui
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
