@@ -11,4 +11,5 @@ buildName: buddy
 buildIdentifier: ${BUILD_NUMBER}
 projectName: Buddy
 debug: true
+parallelsPerPlatform: 1
 consoleLogs: info

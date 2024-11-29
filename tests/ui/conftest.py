@@ -17,12 +17,10 @@ def browser(playwright):
     desired_cap = {
             'os': 'osx',
             'os_version': 'big sur',
-            'browser': 'chrome',
+            'browser': 'playwright-chromium',
             'browser_version': 'latest',
             'browserstack.username': BS_USERNAME,
             'browserstack.accessKey': BS_ACCESS_KEY,
-            'project': 'Buddy',
-            'build': 'playwright-python-1',
             'name': 'Test',
             'resolution': '1920x1080'
     }
