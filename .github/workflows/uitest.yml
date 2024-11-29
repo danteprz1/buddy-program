@@ -15,7 +15,7 @@ jobs:
       - run: browserstack-sdk setup --framework "pytest" --username ${{ secrets.BROWSERSTACK_USERNAME }} --key ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       - run: playwright install
       - name: Run UI tests
-        run: browserstack-sdk pytest -v --junitxml=report.xml tests/ui
+        run: pytest -v --junitxml=report.xml tests/ui
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}

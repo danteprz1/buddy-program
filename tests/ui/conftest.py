@@ -11,17 +11,20 @@ def playwright():
     with sync_playwright() as p:
         yield p
 
+
 @pytest.fixture(scope="session")
 def browser(playwright):
-
     desired_cap = {
-            'browserstack.username': BS_USERNAME,
-            'browserstack.accessKey': BS_ACCESS_KEY
+        'browserstack.username': BS_USERNAME,
+        'browserstack.accessKey': BS_ACCESS_KEY,
+        "os": "Windows",
+        "osVersion": "11",
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
     browser = playwright.chromium.connect(ws_endpoint)
     yield browser
     browser.close()
+
 
 @pytest.fixture
 def page(browser):
