@@ -1,5 +1,6 @@
 import string
 import random
+import pytest
 
 from playwright.sync_api import Page
 
@@ -13,6 +14,7 @@ class HomePage:
         self.submit_task_button = page.locator("button[type='submit']")
         self.settings_menu = page.locator('button[aria-label="Settings"]')
         self.created_task = "//div[contains(text(), 'String')]"
+        self.task_radio_buttons = page.query_selector_all("button[aria-label='Mark as completed']")
 
     def navigate_to_login_page(self):
         self.login_button.click()
@@ -25,6 +27,10 @@ class HomePage:
 
     def is_task_present(self, task_name: str):
         return self.page.locator(self.created_task.replace("String", task_name))
+
+    def task_cleanup(self):
+        for task_radio_button in self.task_radio_buttons:
+            task_radio_button.click()
 
     def generate_random_task_name(self):
         return ''.join(random.choices(string.ascii_letters, k=6))
