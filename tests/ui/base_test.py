@@ -23,3 +23,6 @@ class BaseTest:
     @pytest.fixture
     def user_invalid_credentials(self):
         return MOCK_EMAIL, PASSWORD
+
+    def mark_test_status(self, status, reason, page):
+        page.evaluate("_ => {}", "browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\""+ status + "\", \"reason\": \"" + reason + "\"}}")

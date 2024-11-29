@@ -8,6 +8,7 @@ class TestTask(BaseTest):
         task_name = self.home_page.generate_random_task_name() + " Task"
         self.home_page.create_task(task_name)
         expect(self.home_page.is_task_present(task_name)).to_be_visible()
+        self.mark_test_status("passed", "Successful creation of a task", self.page)
 
     def test_create_multiple_tasks(self, user_valid_credentials):
         user, password = user_valid_credentials
@@ -16,3 +17,4 @@ class TestTask(BaseTest):
         for task_name in task_names:
             self.home_page.create_task(task_name)
             expect(self.home_page.is_task_present(task_name)).to_be_visible()
+        self.mark_test_status("passed", "Successful creation of multiple tasks", self.page)
