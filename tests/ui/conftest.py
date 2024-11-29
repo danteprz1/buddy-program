@@ -17,11 +17,9 @@ def browser(playwright):
     desired_cap = {
             'os': 'osx',
             'os_version': 'big sur',
-            'browser': 'playwright-chromium',
             'browser_version': 'latest',
             'browserstack.username': BS_USERNAME,
             'browserstack.accessKey': BS_ACCESS_KEY,
-            'name': 'Test',
             'resolution': '1920x1080'
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))

@@ -4,12 +4,12 @@ framework: pytest
 platforms:
   - os: OS X
     osVersion: Big Sur
-    browserName: edge
+    browserName: playwright-chromium
     browserVersion: latest
 browserstackLocal: false
 buildName: buddy
 buildIdentifier: ${BUILD_NUMBER}
-projectName: Buddy
+projectName: Buddy Program
 debug: true
 parallelsPerPlatform: 1
 consoleLogs: info
