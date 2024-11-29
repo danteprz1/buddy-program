@@ -25,7 +25,7 @@ jobs:
           local-identifier: random
       - run: playwright install
       - name: Run UI tests
-        run: pytest -v --html-report=report.html tests/ui
+        run: pytest -v --html-report=ui-report.html tests/ui
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pytest-html-report
-          path: /home/runner/work/buddy-program/buddy-program/report.html
+          path: /home/runner/work/buddy-program/buddy-program/ui-report.html
       - name: 'BrowserStackLocal Stop'  # Terminating the BrowserStackLocal tunnel connection
         uses: browserstack/github-actions/setup-local@master
         with:

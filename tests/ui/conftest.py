@@ -10,9 +10,12 @@ def playwright():
     with sync_playwright() as p:
         yield p
 
+def pytest_addoption(parser):
+    parser.addoption("--local", action="store", default="False", help="Run tests on local")
 
 @pytest.fixture(scope="session")
-def browser(playwright):
+def browser(request,playwright):
+    local = request.config.option.local
     desired_cap = {
         'browserstack.username': BS_USERNAME,
         'browserstack.accessKey': BS_ACCESS_KEY,
@@ -23,8 +26,13 @@ def browser(playwright):
         'project': 'Playwright UI',
         'name': 'Playwright UI Test on BrowserStack'
     }
-    ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
-    browser = playwright.chromium.connect(ws_endpoint)
+    if local == "True":
+        print("Running tests on local")
+        browser = playwright.chromium.launch(headless=False)
+    else:
+        print("Running tests on BrowserStack")
+        ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
+        browser = playwright.chromium.connect(ws_endpoint)
     yield browser
     browser.close()
 
