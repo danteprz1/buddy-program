@@ -17,8 +17,10 @@ def browser(playwright):
     desired_cap = {
         'browserstack.username': BS_USERNAME,
         'browserstack.accessKey': BS_ACCESS_KEY,
-        "os": "Windows",
-        "osVersion": "11",
+        'os': 'Windows',
+        'os_version': '10',
+        'browser': 'Chrome',
+        'browser_version': 'latest'
     }
     ws_endpoint = "wss://cdp.browserstack.com/playwright?caps=" + urllib.parse.quote(json.dumps(desired_cap))
     browser = playwright.chromium.connect(ws_endpoint)
