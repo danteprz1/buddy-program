@@ -48,4 +48,4 @@ pytest --local=False tests/ui --html-report=ui-report.html
 
 ## High level interaction diagram
 
-TBD
+![](https://github.com/danteprz1/buddy-program/blob/main/diagram.drawio.png)
